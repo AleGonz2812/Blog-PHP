@@ -6,7 +6,7 @@
  * Utiliza constantes del archivo config.php para las credenciales.
  */
 
-require_once __DIR__ . '/../config/config.php';
+require_once ROOT_PATH . '/config/config.php';
 
 class Database {
     private static $instance = null;
@@ -23,7 +23,7 @@ class Database {
             $this->conn = new PDO($dsn, DB_USER, DB_PASS, [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => false, // Seguridad extra
+                PDO::ATTR_EMULATE_PREPARES => false,
             ]);
         } catch (PDOException $e) {
             if (DEBUG_MODE) {
@@ -34,11 +34,6 @@ class Database {
         }
     }
 
-    /**
-     * Método estático para obtener la instancia única
-     * 
-     * @return Database La instancia única de Database
-     */
     public static function getInstance() {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -46,23 +41,12 @@ class Database {
         return self::$instance;
     }
 
-    /**
-     * Obtener la conexión PDO
-     * 
-     * @return PDO La conexión a la base de datos
-     */
     public function getConnection() {
         return $this->conn;
     }
 
-    /**
-     * Evitar que se pueda clonar la instancia (patrón Singleton)
-     */
     private function __clone() {}
 
-    /**
-     * Evitar que se pueda deserializar la instancia (patrón Singleton)
-     */
     public function __wakeup() {
         throw new Exception("No se puede deserializar un Singleton.");
     }

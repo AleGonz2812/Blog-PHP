@@ -1,0 +1,24 @@
+# Archivos de configuración sensibles
+config/database.php
+.env
+
+# Archivos subidos por usuarios
+uploads/*
+!uploads/.gitkeep
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Dependencias (si usas Composer en el futuro)
+/vendor/
+composer.lock
