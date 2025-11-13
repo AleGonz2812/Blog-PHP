@@ -111,11 +111,14 @@ nav {
     background: rgba(255, 0, 110, 0.1);
     border: 1px solid var(--accent);
     cursor: pointer;
+    color: var(--accent);
 }
 
 .btn-logout:hover {
     background: rgba(255, 0, 110, 0.2);
-    box-shadow: 0 0 15px rgba(255, 0, 110, 0.4);
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.4) !important;
+    border-color: #ff006e !important;
+    color: #ff006e;
 }
 
 /* ========================================
@@ -232,6 +235,9 @@ main {
     color: var(--gray);
     line-height: 1.6;
     margin-bottom: 1rem;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .btn-read-more {

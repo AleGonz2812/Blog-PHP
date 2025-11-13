@@ -75,6 +75,9 @@
         margin-bottom: 1rem;
         line-height: 1.2;
         text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        word-wrap: break-word;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
 
     .post-detail-meta {
@@ -108,6 +111,9 @@
         line-height: 1.8;
         color: #e0e7ff;
         margin-bottom: 2rem;
+        word-wrap: break-word;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
 
     .post-actions {

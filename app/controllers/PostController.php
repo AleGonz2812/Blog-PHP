@@ -51,12 +51,13 @@ class PostController extends BaseController
         // Procesar imagen si se subió
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
             $fileUpload = new FileUpload();
-            $result = $fileUpload->upload($_FILES['image']);
+            $filename = $fileUpload->upload($_FILES['image']);
             
-            if ($result['success']) {
-                $imagePath = $result['filename'];
+            if ($filename) {
+                $imagePath = $filename;
             } else {
-                $_SESSION['error'] = $result['message'];
+                $error = $fileUpload->getError();
+                $_SESSION['error'] = $error ? $error : 'Error al subir la imagen';
                 $this->redirect('/posts/create');
                 return;
             }
@@ -136,14 +137,14 @@ class PostController extends BaseController
         // Procesar nueva imagen si se subió
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
             $fileUpload = new FileUpload();
-            $result = $fileUpload->upload($_FILES['image']);
+            $filename = $fileUpload->upload($_FILES['image']);
             
-            if ($result['success']) {
+            if ($filename) {
                 // Eliminar imagen anterior si existe
                 if ($post['image'] && file_exists(UPLOADS_PATH . '/' . $post['image'])) {
                     unlink(UPLOADS_PATH . '/' . $post['image']);
                 }
-                $imagePath = $result['filename'];
+                $imagePath = $filename;
             }
         }
 

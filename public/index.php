@@ -82,6 +82,11 @@ $router->get('/posts/delete/{id}', function($id) {
     $controller->delete($id);
 });
 
+$router->post('/posts/delete/{id}', function($id) {
+    $controller = new PostController();
+    $controller->delete($id);
+});
+
 // ====== RUTA 404 ======
 $router->notFound(function() {
     http_response_code(404);
