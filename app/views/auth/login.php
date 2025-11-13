@@ -5,13 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - Blog CMS</title>
     <link rel="stylesheet" href="<?= ASSETS_URL ?>css/auth.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #0a0e27 0%, #151932 50%, #1e2139 100%);
+        }
+    </style>
 </head>
 <body>
     <div class="auth-container">
+        <!-- Botón Flecha Atrás -->
+        <a href="<?= BASE_URL ?>/" class="back-arrow" title="Volver al inicio">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+        </a>
+        
         <div class="auth-card">
             <!-- Header -->
             <div class="auth-header">
-                <h1>🔐 Bienvenido</h1>
+                <h1>Bienvenido</h1>
                 <p>Inicia sesión para continuar</p>
             </div>
 
@@ -76,7 +98,7 @@
             <!-- Footer -->
             <div class="auth-footer">
                 ¿No tienes cuenta? 
-                <a href="<?= BASE_URL ?>/register">Regístrate aquí</a>
+                <a href="<?= BASE_URL ?>/register" class="auth-link-highlight">Regístrate aquí</a>
             </div>
         </div>
     </div>

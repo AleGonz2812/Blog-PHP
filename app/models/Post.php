@@ -89,6 +89,13 @@ class Post {
         $post = $stmt->fetch();
         return $post ?: null;
     }
+    
+    /**
+     * Alias de getById para compatibilidad
+     */
+    public function findById(int $id): ?array {
+        return $this->getById($id);
+    }
 
     /**
      * Obtener todos los posts (con paginación)

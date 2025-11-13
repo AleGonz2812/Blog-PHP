@@ -44,6 +44,20 @@ class BaseController {
             echo $content;
         }
     }
+    
+    /**
+     * Alias de view para compatibilidad
+     */
+    protected function render(string $view, array $data = [], ?string $layout = 'main') {
+        // Añadir currentUser a los datos si existe
+        if (isset($_SESSION['user_id']) && !isset($data['currentUser'])) {
+            require_once APP_PATH . '/models/User.php';
+            $userModel = new User();
+            $data['currentUser'] = $userModel->findById($_SESSION['user_id']);
+        }
+        
+        return $this->view($view, $data, $layout);
+    }
 
     /**
      * Renderizar JSON (para APIs)

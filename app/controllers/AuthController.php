@@ -46,7 +46,7 @@ class AuthController extends BaseController {
 
         // Intentar login
         if ($this->userModel->login($username, $password)) {
-            $_SESSION['success'] = '¡Bienvenido de nuevo!';
+            // Login exitoso sin mensaje
             $this->redirect('/');
         } else {
             $_SESSION['error'] = 'Credenciales incorrectas.';

@@ -1,7 +1,12 @@
 <!-- Page Header -->
 <div class="page-header">
-    <h1>📰 Bienvenido al Blog</h1>
+    <h1>Bienvenido al Blog</h1>
     <p>Descubre las últimas publicaciones de nuestra comunidad</p>
+    <?php if (isset($currentUser)): ?>
+        <a href="<?= BASE_URL ?>/posts/create" class="btn btn-create-post">
+            ✍️ Crear Nueva Publicación
+        </a>
+    <?php endif; ?>
 </div>
 
 <?php if (empty($posts)): ?>
@@ -88,12 +93,12 @@
 
 <style>
     .btn-primary {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #00d9ff 0%, #7b2cbf 100%);
         color: white;
         text-decoration: none;
-        border-radius: 8px;
+        border-radius: 10px;
         font-weight: 600;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 4px 20px rgba(0, 217, 255, 0.4);
         transition: all 0.3s;
         border: none;
         cursor: pointer;
@@ -101,6 +106,27 @@
     
     .btn-primary:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        box-shadow: 0 6px 30px rgba(0, 217, 255, 0.6);
+    }
+    
+    .btn-create-post {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.875rem 2rem;
+        background: linear-gradient(135deg, #00d9ff 0%, #7b2cbf 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: 600;
+        box-shadow: 0 4px 20px rgba(0, 217, 255, 0.4);
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        font-size: 1.05rem;
+    }
+    
+    .btn-create-post:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 30px rgba(0, 217, 255, 0.6);
     }
 </style>

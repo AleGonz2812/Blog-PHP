@@ -16,7 +16,7 @@ define('UPLOADS_PATH', ROOT_PATH . '/uploads'); // Carpeta de uploads
 define('PUBLIC_PATH', ROOT_PATH . '/public'); // Carpeta pública
 
 // URLs Base (ajusta según tu configuración local)
-define('BASE_URL', 'http://localhost:8080'); // URL base de la app
+define('BASE_URL', 'http://localhost/Blog-PHP/public'); // URL base de la app
 define('ASSETS_URL', BASE_URL . '/'); // URL de assets (css, js, images)
 
 // Configuración de Sesiones

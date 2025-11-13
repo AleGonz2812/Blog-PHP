@@ -18,18 +18,18 @@
         <div class="container">
             <nav>
                 <a href="<?= BASE_URL ?>/" class="logo">
-                    <span>📝</span> Blog CMS
+                    Blog CMS
                 </a>
                 
                 <ul class="nav-links">
-                    <li><a href="<?= BASE_URL ?>/">🏠 Inicio</a></li>
+                    <li><a href="<?= BASE_URL ?>/">Inicio</a></li>
                     
                     <?php if (isset($currentUser)): ?>
                         <li><a href="<?= BASE_URL ?>/profile">👤 <?= htmlspecialchars($currentUser['username']) ?></a></li>
-                        <li><a href="<?= BASE_URL ?>/logout" class="btn-logout">🚪 Salir</a></li>
+                        <li><a href="<?= BASE_URL ?>/logout" class="btn-logout">Salir</a></li>
                     <?php else: ?>
-                        <li><a href="<?= BASE_URL ?>/login">🔑 Iniciar Sesión</a></li>
-                        <li><a href="<?= BASE_URL ?>/register">✍️ Registrarse</a></li>
+                        <li><a href="<?= BASE_URL ?>/login">Iniciar Sesión</a></li>
+                        <li><a href="<?= BASE_URL ?>/register">Registrarse</a></li>
                     <?php endif; ?>
                 </ul>
             </nav>
@@ -65,9 +65,6 @@
     <footer>
         <div class="container">
             <p>&copy; <?= date('Y') ?> Blog CMS - Proyecto Académico PHP</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
-                Desarrollado con 💜 usando PHP, MVC y PDO
-            </p>
         </div>
     </footer>
 

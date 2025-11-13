@@ -1,5 +1,6 @@
 /* ========================================
    AUTH PAGES - Login & Register
+   Tema Oscuro Futurista
    ======================================== */
 
 .auth-container {
@@ -7,18 +8,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0a0e27 0%, #151932 50%, #1e2139 100%);
     padding: 2rem;
+    position: relative;
 }
 
 .auth-card {
-    background: white;
+    background: transparent;
     border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    overflow: hidden;
+    box-shadow: none;
+    overflow: visible;
     max-width: 450px;
     width: 100%;
     animation: fadeInUp 0.5s ease;
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes fadeInUp {
@@ -33,24 +37,36 @@
 }
 
 .auth-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(123, 44, 191, 0.2) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-bottom: none;
+    border-radius: 20px 20px 0 0;
     color: white;
     padding: 2rem;
     text-align: center;
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.2);
 }
 
 .auth-header h1 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+    color: #00d9ff;
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
 }
 
 .auth-header p {
     opacity: 0.9;
     font-size: 0.95rem;
+    color: #e0e7ff;
 }
 
 .auth-body {
     padding: 2.5rem;
+    background: rgba(21, 25, 50, 0.6);
+    backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(0, 217, 255, 0.3);
+    border-right: 1px solid rgba(0, 217, 255, 0.3);
 }
 
 .form-group {
@@ -60,7 +76,7 @@
 .form-group label {
     display: block;
     font-weight: 600;
-    color: #2d3748;
+    color: white;
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
@@ -68,7 +84,9 @@
 .form-control {
     width: 100%;
     padding: 0.875rem 1rem;
-    border: 2px solid #e2e8f0;
+    border: 2px solid rgba(0, 217, 255, 0.3);
+    background: rgba(10, 14, 39, 0.8);
+    color: #e0e7ff;
     border-radius: 8px;
     font-size: 1rem;
     transition: all 0.3s;
@@ -76,12 +94,13 @@
 }
 
 .form-control:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #00d9ff;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+    background: rgba(10, 14, 39, 0.9);
 }
 
 .form-control::placeholder {
-    color: #a0aec0;
+    color: #8b92b0;
 }
 
 .btn {
@@ -99,14 +118,14 @@
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #00d9ff 0%, #7b2cbf 100%);
     color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 217, 255, 0.4);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    box-shadow: 0 6px 30px rgba(0, 217, 255, 0.6);
 }
 
 .btn-primary:active {
@@ -116,20 +135,42 @@
 .auth-footer {
     text-align: center;
     padding: 1.5rem 2.5rem 2.5rem;
-    color: #718096;
+    color: rgba(224, 231, 255, 0.9);
     font-size: 0.9rem;
+    background: rgba(21, 25, 50, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-top: none;
+    border-radius: 0 0 20px 20px;
 }
 
 .auth-footer a {
-    color: #667eea;
+    color: #00d9ff;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s;
+    transition: all 0.3s;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
 }
 
 .auth-footer a:hover {
-    color: #5568d3;
-    text-decoration: underline;
+    color: white;
+    text-decoration: none;
+    background: rgba(0, 217, 255, 0.2);
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.8);
+}
+
+.auth-link-highlight {
+    display: inline-block;
+    padding: 0.4rem 0.8rem !important;
+    background: rgba(0, 217, 255, 0.15) !important;
+    border: 1px solid #00d9ff !important;
+    border-radius: 8px !important;
+}
+
+.auth-link-highlight:hover {
+    background: rgba(0, 217, 255, 0.3) !important;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.5) !important;
 }
 
 .divider {
@@ -145,7 +186,7 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: #e2e8f0;
+    background: rgba(0, 217, 255, 0.3);
 }
 
 .divider span {
@@ -155,25 +196,26 @@
 /* Alert personalizado para auth */
 .auth-alert {
     padding: 0.875rem 1rem;
-    border-radius: 8px;
+    border-radius: 10px;
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     animation: slideDown 0.3s ease;
+    border: 1px solid;
 }
 
 .auth-alert-success {
-    background: #c6f6d5;
-    color: #22543d;
-    border: 1px solid #9ae6b4;
+    background: rgba(6, 255, 165, 0.1);
+    color: #06ffa5;
+    border-color: #06ffa5;
 }
 
 .auth-alert-error {
-    background: #fed7d7;
-    color: #742a2a;
-    border: 1px solid #fc8181;
+    background: rgba(255, 0, 110, 0.1);
+    color: #ff006e;
+    border-color: #ff006e;
 }
 
 /* Icono de input */
@@ -211,7 +253,7 @@
 }
 
 .password-toggle .toggle-btn:hover {
-    color: #667eea;
+    color: #00d9ff;
 }
 
 /* Responsive */
@@ -230,6 +272,18 @@
 
     .auth-footer {
         padding: 1rem 1.5rem 1.5rem;
+    }
+    
+    .back-arrow {
+        top: 1rem;
+        left: 1rem;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .back-arrow svg {
+        width: 20px;
+        height: 20px;
     }
 }
 
@@ -257,4 +311,39 @@
 
 @keyframes spinner {
     to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   BOTÓN FLECHA CIRCULAR ATRÁS
+   ======================================== */
+
+.back-arrow {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 217, 255, 0.1);
+    border: 2px solid rgba(0, 217, 255, 0.3);
+    border-radius: 50%;
+    color: #00d9ff;
+    text-decoration: none;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.back-arrow:hover {
+    background: rgba(0, 217, 255, 0.2);
+    border-color: #00d9ff;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+    transform: translateX(-5px);
+}
+
+.back-arrow svg {
+    width: 24px;
+    height: 24px;
 }

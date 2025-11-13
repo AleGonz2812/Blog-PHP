@@ -33,11 +33,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Confirmación antes de eliminar
-function confirmDelete(message = '¿Estás seguro de que deseas eliminar esto?') {
-    return confirm(message);
-}
-
 // Scroll suave
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

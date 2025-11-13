@@ -5,13 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse - Blog CMS</title>
     <link rel="stylesheet" href="<?= ASSETS_URL ?>css/auth.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #0a0e27 0%, #151932 50%, #1e2139 100%);
+        }
+    </style>
 </head>
 <body>
     <div class="auth-container">
+        <!-- Botón Flecha Atrás -->
+        <a href="<?= BASE_URL ?>/" class="back-arrow" title="Volver al inicio">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+        </a>
+        
         <div class="auth-card">
             <!-- Header -->
             <div class="auth-header">
-                <h1>✨ Crear Cuenta</h1>
+                <h1>Crear Cuenta</h1>
                 <p>Únete a nuestra comunidad</p>
             </div>
 
@@ -41,7 +63,7 @@
                             maxlength="50"
                             autocomplete="username"
                         >
-                        <small style="color: #718096; font-size: 0.85rem; display: block; margin-top: 0.25rem;">
+                        <small style="color: #00ffff; font-size: 0.85rem; display: block; margin-top: 0.25rem; font-weight: 500;">
                             Mínimo 3 caracteres
                         </small>
                     </div>
@@ -75,7 +97,7 @@
                                 🙉
                             </button>
                         </div>
-                        <small style="color: #718096; font-size: 0.85rem; display: block; margin-top: 0.25rem;">
+                        <small style="color: #00ffff; font-size: 0.85rem; display: block; margin-top: 0.25rem; font-weight: 500;">
                             Mínimo 6 caracteres
                         </small>
                     </div>
@@ -108,7 +130,7 @@
             <!-- Footer -->
             <div class="auth-footer">
                 ¿Ya tienes cuenta? 
-                <a href="<?= BASE_URL ?>/login">Inicia sesión aquí</a>
+                <a href="<?= BASE_URL ?>/login" class="auth-link-highlight">Inicia sesión aquí</a>
             </div>
         </div>
     </div>
