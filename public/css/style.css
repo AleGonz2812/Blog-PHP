@@ -107,18 +107,32 @@ nav {
     box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
 }
 
+.user-profile {
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: default;
+    transition: all 0.3s;
+}
+
 .btn-logout {
-    background: rgba(255, 0, 110, 0.1);
-    border: 1px solid var(--accent);
+    background: linear-gradient(135deg, #ff006e, #dc143c);
+    border: 2px solid rgba(255, 0, 110, 0.6);
     cursor: pointer;
-    color: var(--accent);
+    color: white;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 .btn-logout:hover {
-    background: rgba(255, 0, 110, 0.2);
-    box-shadow: 0 0 15px rgba(255, 0, 110, 0.4) !important;
-    border-color: #ff006e !important;
-    color: #ff006e;
+    background: linear-gradient(135deg, #ff1a7f, #e91e63);
+    box-shadow: 0 0 25px rgba(255, 0, 110, 0.6), 0 0 15px rgba(255, 0, 110, 0.4);
+    border-color: #ff006e;
+    color: white;
+    transform: translateY(-2px);
 }
 
 /* ========================================
@@ -167,6 +181,8 @@ main {
     transition: all 0.4s;
     cursor: pointer;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .post-card::before {
@@ -201,12 +217,18 @@ main {
 .post-image {
     width: 100%;
     height: 200px;
-    object-fit: cover;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    object-fit: contain;
+    background: linear-gradient(135deg, rgba(10, 14, 39, 0.9), rgba(21, 25, 50, 0.9));
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .post-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .post-meta {
@@ -238,6 +260,7 @@ main {
     word-wrap: break-word;
     word-break: break-word;
     overflow-wrap: break-word;
+    flex-grow: 1;
 }
 
 .btn-read-more {

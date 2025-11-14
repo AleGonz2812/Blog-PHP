@@ -1,203 +1,375 @@
-# 📝 Blog CMS - Sistema de Gestión de Contenido en PHP
+# 🚀 Blog CMS - Sistema de Gestión de Contenido
 
-Sistema de gestión de contenido (CMS) para blog personal desarrollado en PHP puro, implementando POO, PDO, autenticación segura y arquitectura MVC.
+![PHP](https://img.shields.io/badge/PHP-7.4+-777BB4?style=flat&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0+-4479A1?style=flat&logo=mysql&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Status](https://img.shields.io/badge/Status-Active-success.svg)
 
-## 🎯 Objetivo del Proyecto
+Sistema de gestión de contenido (CMS) para blog personal desarrollado en **PHP puro** con arquitectura MVC, diseño futurista oscuro y funcionalidades completas de CRUD.
 
-Proyecto final de asignatura para dominar conceptos fundamentales de desarrollo web en PHP:
-- Programación Orientada a Objetos (POO)
-- Bases de datos con PDO y sentencias preparadas
-- Sistema de autenticación y sesiones seguras
-- Enrutamiento y URLs amigables
-- Gestión de archivos y validación de datos
-- Separación de lógica y presentación (MVC)
+> 💡 **Proyecto Académico** - Sistema completo de blog con autenticación, CRUD de posts, gestión de imágenes y diseño moderno.
 
-## 🚀 Características Implementadas
+---
 
-### ✅ Sistema de Base de Datos
-- [x] Conexión PDO con patrón Singleton
-- [x] Configuración centralizada
-- [x] Manejo de errores y excepciones
-- [x] Prevención de SQL Injection
+## ✨ Características Principales
 
-### ✅ Gestión de Usuarios
-- [x] Registro de usuarios con validación
-- [x] Hash seguro de contraseñas (`password_hash`)
-- [x] Sistema de login/logout
-- [x] Gestión de sesiones
-- [x] Cambio de contraseña
+### 🎨 Interfaz Moderna
+- **Diseño Dark Futurista** con efectos de glassmorphism
+- Paleta de colores: Cyan (#00d9ff), Púrpura (#7b2cbf), Rosa (#ff006e)
+- Efectos de brillo y animaciones suaves
+- Responsive y adaptable a dispositivos móviles
 
-### ✅ Gestión de Posts
-- [x] CRUD completo (Create, Read, Update, Delete)
-- [x] Asociación con usuarios (autor)
-- [x] Búsqueda de posts
-- [x] Paginación
-- [x] Timestamps automáticos
+### 🔐 Sistema de Autenticación
+- ✅ Registro e inicio de sesión seguro
+- ✅ Hash de contraseñas con `password_hash()` y bcrypt
+- ✅ Gestión de sesiones
+- ✅ Protección contra SQL Injection
+- ✅ Validación de datos en cliente y servidor
 
-### ✅ Gestión de Archivos
-- [x] Subida de imágenes
-- [x] Validación de tipo y tamaño
-- [x] Nombres únicos de archivo
-- [x] Eliminación segura
+### 📝 Gestión de Posts
+- ✅ **CRUD completo** (Crear, Leer, Actualizar, Eliminar)
+- ✅ Subida de imágenes con validación
+- ✅ Editor de contenido con vista previa
+- ✅ Modal de confirmación para eliminación
+- ✅ Asociación de posts con usuarios autores
+- ✅ Visualización optimizada de imágenes
 
-### ⏳ En Desarrollo
-- [ ] CRUD completo de posts
-- [ ] Panel de administración
-- [ ] Comentarios en posts
-- [ ] Búsqueda avanzada
+### 🗄️ Base de Datos
+- ✅ PDO con sentencias preparadas
+- ✅ Patrón Singleton para conexión
+- ✅ Migraciones SQL incluidas
+- ✅ Datos de ejemplo para testing
 
-## 🎨 Arquitectura MVC
+## 🎯 Arquitectura
 
-El proyecto sigue el patrón **Modelo-Vista-Controlador**:
+El proyecto implementa el patrón **MVC (Modelo-Vista-Controlador)** de forma clara y organizada:
 
-- **Modelos** (`app/models/`): Interactúan con la base de datos
-- **Vistas** (`app/views/`): Presentación HTML
-- **Controladores** (`app/controllers/`): Lógica de negocio
-- **Router** (`app/Router.php`): Enrutamiento de URLs
+```
+┌─────────────┐      ┌──────────────┐      ┌─────────────┐
+│   Router    │─────▶│ Controller   │─────▶│    Model    │
+│  (Rutas)    │      │  (Lógica)    │      │  (Datos)    │
+└─────────────┘      └──────────────┘      └─────────────┘
+                             │
+                             ▼
+                      ┌─────────────┐
+                      │    View     │
+                      │    (UI)     │
+                      └─────────────┘
+```
 
-Lee la [**GUIA_MVC.md**](GUIA_MVC.md) para entender la arquitectura completa.
+### Componentes
+- **Router**: Manejo de rutas dinámicas con parámetros
+- **Controladores**: Lógica de negocio y validaciones
+- **Modelos**: Interacción con base de datos (PDO)
+- **Vistas**: Templates PHP con separación de layouts
 
 ## 📁 Estructura del Proyecto
 
 ```
 Blog-PHP/
-├── app/                    # Aplicación MVC
-│   ├── controllers/        # Controladores
-│   │   ├── BaseController.php
-│   │   ├── AuthController.php
-│   │   └── HomeController.php
-│   ├── models/             # Modelos (BD)
-│   │   ├── Database.php
-│   │   ├── User.php
-│   │   ├── Post.php
-│   │   └── FileUpload.php
-│   ├── views/              # Vistas (HTML)
+├── app/                          # 🎯 Núcleo de la aplicación
+│   ├── controllers/              # Controladores MVC
+│   │   ├── BaseController.php   # Controlador base con métodos comunes
+│   │   ├── AuthController.php   # Autenticación y registro
+│   │   ├── HomeController.php   # Página principal y visualización
+│   │   └── PostController.php   # CRUD de publicaciones
+│   │
+│   ├── models/                   # Modelos de datos
+│   │   ├── Database.php         # Singleton PDO
+│   │   ├── User.php             # Gestión de usuarios
+│   │   ├── Post.php             # Gestión de posts
+│   │   └── FileUpload.php       # Manejo de archivos
+│   │
+│   ├── views/                    # Templates y vistas
 │   │   ├── layouts/
-│   │   │   └── main.php
+│   │   │   └── main.php         # Layout principal
 │   │   ├── auth/
-│   │   │   ├── login.php
-│   │   │   └── register.php
+│   │   │   ├── login.php        # Formulario de login
+│   │   │   └── register.php     # Formulario de registro
 │   │   └── posts/
-│   │       ├── index.php
-│   │       └── show.php
-│   └── Router.php          # Sistema de rutas
-├── config/                 # Configuración
-│   └── config.php
-├── database/               # SQL
-│   ├── schema.sql
-│   └── sample_data.sql
-├── includes/               # Helpers
-│   └── helpers.php
-├── public/                 # Archivos públicos
+│   │       ├── index.php        # Lista de posts
+│   │       ├── show.php         # Detalle de post
+│   │       ├── create.php       # Crear post
+│   │       └── edit.php         # Editar post
+│   │
+│   └── Router.php                # Sistema de enrutamiento
+│
+├── config/
+│   └── config.php                # Configuración global
+│
+├── database/                     # 🗄️ Scripts SQL
+│   ├── schema.sql               # Estructura de BD
+│   └── sample_data.sql          # Datos de ejemplo
+│
+├── public/                       # 🌐 Archivos públicos
 │   ├── css/
-│   │   ├── style.css
-│   │   └── auth.css
+│   │   ├── style.css            # Estilos principales
+│   │   └── auth.css             # Estilos de autenticación
 │   ├── js/
-│   │   └── main.js
-│   ├── images/
-│   ├── .htaccess
-│   └── index.php           # Punto de entrada
-├── uploads/                # Archivos subidos
-├── .gitignore
-├── GUIA_MVC.md            # Guía de MVC
-└── README.md
+│   │   └── main.js              # JavaScript general
+│   ├── images/                  # Imágenes estáticas
+│   ├── .htaccess                # Reescritura de URLs
+│   └── index.php                # Punto de entrada
+│
+├── uploads/                      # 📁 Archivos subidos por usuarios
+│
+└── README.md                     # Documentación
 ```
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Tecnologías y Herramientas
 
-- **PHP 7.4+** - Lenguaje principal
-- **MySQL 8.0** - Base de datos
-- **PDO** - Capa de abstracción de BD
-- **Git** - Control de versiones
+| Categoría | Tecnología |
+|-----------|-----------|
+| **Backend** | PHP 7.4+ (POO, PDO) |
+| **Base de Datos** | MySQL 8.0 / MariaDB 10.2+ |
+| **Frontend** | HTML5, CSS3, JavaScript (Vanilla) |
+| **Servidor** | Apache 2.4 / Nginx |
+| **Control de Versiones** | Git & GitHub |
 
-## 📋 Requisitos
+### Características de PHP Utilizadas
+- ✅ Programación Orientada a Objetos (POO)
+- ✅ PDO (PHP Data Objects)
+- ✅ Namespaces y Autoloading
+- ✅ Sesiones y Cookies
+- ✅ Manejo de archivos
+- ✅ Validación y sanitización
+- ✅ Password hashing (bcrypt)
 
-- PHP >= 7.4
-- MySQL >= 5.7 o MariaDB >= 10.2
-- Servidor web (Apache/Nginx) o PHP built-in server
-- Extensiones PHP: `pdo`, `pdo_mysql`, `gd` (para imágenes)
+## 📋 Requisitos del Sistema
 
-## 🔧 Instalación
+- **PHP** >= 7.4
+- **MySQL** >= 5.7 o **MariaDB** >= 10.2
+- **Apache** 2.4+ con `mod_rewrite` activado
+- Extensiones PHP:
+  - `pdo`
+  - `pdo_mysql`
+  - `gd` (procesamiento de imágenes)
+  - `fileinfo` (validación de archivos)
 
-### 1. Clonar el repositorio
+## 🚀 Instalación y Configuración
+
+### Método 1: Con XAMPP (Recomendado para Windows)
+
+1. **Clonar el repositorio**
 ```bash
-git clone <tu-repositorio>
+cd C:\xampp\htdocs
+git clone https://github.com/tu-usuario/Blog-PHP.git
 cd Blog-PHP
 ```
 
-### 2. Configurar la base de datos
-```bash
-# Crear la base de datos y tablas
-mysql -u root -p < database/schema.sql
+2. **Crear la base de datos**
+   - Abre **phpMyAdmin**: `http://localhost/phpmyadmin`
+   - Crea una nueva base de datos llamada `blog_php`
+   - Ve a la pestaña **SQL** e importa los archivos en orden:
+     1. `database/schema.sql` (estructura)
+     2. `database/sample_data.sql` (datos de ejemplo)
 
-# (Opcional) Insertar datos de ejemplo
-mysql -u root -p blog_php < database/sample_data.sql
-```
-
-### 3. Configurar credenciales
-Edita `config/config.php` y ajusta las credenciales de tu base de datos:
+3. **Configurar credenciales**
+   
+   Edita `config/config.php`:
 ```php
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'blog_php');
-define('DB_USER', 'tu_usuario');
-define('DB_PASS', 'tu_contraseña');
-define('BASE_URL', 'http://localhost:8000'); // Ajusta según tu entorno
+define('DB_USER', 'root');
+define('DB_PASS', '');  // Vacío por defecto en XAMPP
+define('BASE_URL', 'http://localhost/Blog-PHP/public');
 ```
 
-### 4. Dar permisos a la carpeta uploads
+4. **Dar permisos a uploads**
 ```bash
-chmod 755 uploads/
+# En Windows, verifica que la carpeta uploads existe
+# Si no, créala manualmente
 ```
 
-### 5. Iniciar servidor de desarrollo
+5. **Acceder al proyecto**
+   - URL: `http://localhost/Blog-PHP/public`
+   - Login: `admin` / `password`
 
-#### Opción A: Servidor PHP integrado (Recomendado)
+### Método 2: Con servidor PHP integrado
+
+1. **Clonar y configurar**
+```bash
+git clone https://github.com/tu-usuario/Blog-PHP.git
+cd Blog-PHP
+```
+
+2. **Crear base de datos**
+```bash
+mysql -u root -p
+CREATE DATABASE blog_php;
+USE blog_php;
+SOURCE database/schema.sql;
+SOURCE database/sample_data.sql;
+EXIT;
+```
+
+3. **Configurar `config/config.php`**
+```php
+define('BASE_URL', 'http://localhost:8000');
+```
+
+4. **Iniciar servidor**
 ```bash
 cd public
 php -S localhost:8000
 ```
-Accede a: `http://localhost:8000`
 
-#### Opción B: XAMPP/WAMP
-- Coloca el proyecto en `htdocs/Blog-PHP`
-- Accede a: `http://localhost/Blog-PHP/public`
+5. **Acceder**
+   - URL: `http://localhost:8000`
+   - Login: `admin` / `password`
 
-### 6. Credenciales de prueba
-Si cargaste los datos de ejemplo:
-- **Usuario**: `admin`
-- **Contraseña**: `password`
+## 🔑 Credenciales de Prueba
 
-## 🧪 Testing
+| Usuario | Contraseña | Rol |
+|---------|------------|-----|
+| admin | password | Administrador |
 
-Verifica que todo funciona: `http://localhost:8000/test.php`
+## 📖 Uso del Sistema
 
-## 📚 Conceptos de PHP Aprendidos
+### Crear un Nuevo Post
 
-### Patrón Singleton
-```php
-$db = Database::getInstance();
+1. Inicia sesión con tu cuenta
+2. Haz clic en **"Crear Nueva Publicación"**
+3. Rellena el formulario:
+   - **Título**: Mínimo 5 caracteres
+   - **Contenido**: Mínimo 10 caracteres
+   - **Imagen** (opcional): JPG, PNG, GIF (máx 5MB)
+4. Click en **"Publicar"**
+
+### Editar un Post
+
+1. Entra al detalle del post que creaste
+2. Click en **"✏️ Editar"**
+3. Modifica los campos necesarios
+4. Click en **"Actualizar"**
+
+### Eliminar un Post
+
+1. Entra al detalle del post
+2. Click en **"🗑️ Eliminar"**
+3. Confirma en el modal personalizado
+4. El post se eliminará junto con su imagen
+
+## 🔒 Características de Seguridad
+
+| Característica | Implementación |
+|---------------|----------------|
+| **SQL Injection** | Sentencias preparadas (PDO) |
+| **XSS** | `htmlspecialchars()` en todas las salidas |
+| **Contraseñas** | `password_hash()` con bcrypt |
+| **Sesiones** | Regeneración de ID tras login |
+| **CSRF** | Validación de origen (pendiente tokens) |
+| **Archivos** | Validación de tipo MIME y extensión |
+
+## 🎨 Personalización
+
+### Cambiar Colores del Tema
+
+Edita `public/css/style.css`:
+
+```css
+:root {
+    --primary: #00d9ff;      /* Cyan */
+    --secondary: #7b2cbf;    /* Púrpura */
+    --accent: #ff006e;       /* Rosa */
+    --dark: #0a0e27;         /* Fondo oscuro */
+    --text: #e0e7ff;         /* Texto claro */
+}
 ```
 
-### Sentencias Preparadas (PDO)
+### Agregar Nuevas Rutas
+
+Edita `public/index.php`:
+
+```php
+$router->get('/mi-ruta', function() {
+    $controller = new MiController();
+    $controller->miMetodo();
+});
+```
+
+## 📚 Conceptos de PHP Implementados
+
+### 1. Patrón Singleton
+```php
+class Database {
+    private static $instance = null;
+    
+    public static function getInstance() {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+}
+```
+
+### 2. Sentencias Preparadas
 ```php
 $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username");
 $stmt->execute([':username' => $username]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 ```
 
-### Hash de Contraseñas
+### 3. Hash de Contraseñas
 ```php
-password_hash($password, PASSWORD_DEFAULT);
-password_verify($password, $hash);
+// Crear hash
+$hash = password_hash($password, PASSWORD_DEFAULT);
+
+// Verificar
+if (password_verify($password, $hash)) {
+    // Contraseña correcta
+}
 ```
 
-## 🔒 Seguridad Implementada
+### 4. Enrutamiento Dinámico
+```php
+$router->get('/post/{id}', function($id) {
+    // $id se extrae automáticamente de la URL
+});
+```
 
-- ✅ Contraseñas hasheadas
-- ✅ Sentencias preparadas (prevención SQL Injection)
-- ✅ Validación y saneamiento de datos
-- ✅ Prevención XSS
-- ✅ Regeneración de ID de sesión
+## 🐛 Solución de Problemas
+
+### Error: "Call to undefined function password_hash()"
+- **Solución**: Actualiza PHP a versión 5.5 o superior
+
+### Error: "Connection refused"
+- **Solución**: Verifica que MySQL/Apache estén ejecutándose en XAMPP
+
+### Error: "404 Not Found" en todas las rutas
+- **Solución**: Activa `mod_rewrite` en Apache
+```bash
+sudo a2enmod rewrite
+sudo service apache2 restart
+```
+
+### Las imágenes no se suben
+- **Solución**: Verifica permisos de la carpeta `uploads/`
+```bash
+chmod 755 uploads/
+```
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Para cambios importantes:
+
+1. Fork el proyecto
+2. Crea una rama (`git checkout -b feature/NuevaCaracteristica`)
+3. Commit tus cambios (`git commit -m 'Agregar nueva característica'`)
+4. Push a la rama (`git push origin feature/NuevaCaracteristica`)
+5. Abre un Pull Request
+
+## 📝 Licencia
+
+Este proyecto es de código abierto bajo la licencia MIT.
+
+## 👨‍💻 Autor
+
+**Proyecto Académico** - Desarrollo Web con PHP
 
 ---
 
-**Proyecto Académico** - Noviembre 2025
+⭐ Si este proyecto te fue útil, considera darle una estrella en GitHub
+
+📧 Reporta bugs o sugerencias en [Issues](https://github.com/tu-usuario/Blog-PHP/issues)

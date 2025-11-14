@@ -25,7 +25,7 @@
                     <li><a href="<?= BASE_URL ?>/">Inicio</a></li>
                     
                     <?php if (isset($currentUser)): ?>
-                        <li><a href="<?= BASE_URL ?>/profile">👤 <?= htmlspecialchars($currentUser['username']) ?></a></li>
+                        <li><span class="user-profile">👤 <?= htmlspecialchars($currentUser['username']) ?></span></li>
                         <li><a href="<?= BASE_URL ?>/logout" class="btn-logout">Salir</a></li>
                     <?php else: ?>
                         <li><a href="<?= BASE_URL ?>/login">Iniciar Sesión</a></li>
